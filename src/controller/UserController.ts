@@ -34,11 +34,11 @@ const UserController = (function () {
 	async function login(req: Request, res: Response) {
 		const { email, password } = req.body as UserParams
 
-		const user = await User.findOne({ email })
+		const user: { _doc: UserParams } = await User.findOne({ email })
 
 		if (!user) return res.status(404).json(NOT_FOUND)
 
-		if (user.password !== toHash(password))
+		if (user._doc.password !== toHash(password))
 			return res.status(401).json(getJSONResponse('Usuário ou senha Incorretos'))
 		else {
 			const { password, ...safeUser } = user._doc
