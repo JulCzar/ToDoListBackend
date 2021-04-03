@@ -1,5 +1,5 @@
 import express from 'express'
-import mongoose from 'mongoose'
+import * as mongoose from 'mongoose'
 import cors from 'cors'
 
 import routes from './routes'
