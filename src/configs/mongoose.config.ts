@@ -1,8 +1,9 @@
-import mongoose from 'mongoose'
+import { ConnectOptions } from 'mongoose'
 
-const mongoConfig: mongoose.ConnectOptions = {
+const mongoConfig: ConnectOptions = {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+	useFindAndModify: false
 }
 
 export default mongoConfig
