@@ -1,0 +1,23 @@
+{
+  "name": "todo_list_backend",
+  "version": "0.0.1",
+  "description": "An application for store todo list's shared",
+  "main": "./src/server.ts",
+  "author": "JulCzar",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "npx ts-node-dev ./src/server.ts",
+    "start": "npx ts-node ./src/server.ts"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  }
+}
