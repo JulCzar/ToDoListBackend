@@ -1,9 +1,9 @@
-import * as mongoose from 'mongoose'
+const mongoose = require('mongoose')
 const express = require('express')
 const cors = require('cors')
 
-import routes from './routes'
-import { mongoConfig, secrets } from './configs'
+import { mongoConfig, secrets } from './src/configs'
+import routes from './src/routes'
 
 const app = express()
 

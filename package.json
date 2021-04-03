@@ -2,14 +2,14 @@
   "name": "todo_list_backend",
   "version": "0.0.1",
   "description": "An application for store todo list's shared",
-  "main": "./src/server.ts",
+  "main": "index.ts",
   "author": "JulCzar",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "ts-node-dev ./src/server.ts",
-    "start": "npx ts-node ./src/server.ts",
-		"build": "tsc ./src/server.ts"
+    "dev": "ts-node-dev index.ts",
+    "start": "npx ts-node index.ts",
+		"build": "tsc index.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
