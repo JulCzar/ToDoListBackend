@@ -9,6 +9,7 @@ routes.get('/', (req, res) => res.json({ status: 'running' }))
 routes.get('/todos', TodoController.index)
 routes.put('/todos', TodoController.update)
 routes.post('/todos', TodoController.create)
+routes.delete('/todos/:id', TodoController.destroy)
 routes.get('/todos/:id', TodoController.show)
 
 export default routes
