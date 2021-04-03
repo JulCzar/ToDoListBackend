@@ -1,15 +1,16 @@
 import { Request, Response } from 'express'
-import Todo from '../models/Todo'
+import { Todo } from '../models'
+import { getJSONResponse } from '../utils';
 
-const NOT_FOUND = { message: "Todo não encontrado" }
+const NOT_FOUND = getJSONResponse('Tarefa não encontrada!')
 
-interface bodyParams {
-	_id?: String
-	description: String
+interface todoParams {
+	_id?: string
+	description: string
+	endAt: string
 	folder: string
-	endAt: String
 	status?: Boolean
-	title: String
+	title: string
 }
 
 const TodoController = (function () {
@@ -28,7 +29,7 @@ const TodoController = (function () {
 		return res.json(todo)
 	}
 	async function create(req: Request, res: Response) {
-		const { title, description, folder, endAt } = req.body as bodyParams
+		const { title, description, folder, endAt } = req.body as todoParams
 
 		const created = new Date()
 
@@ -42,7 +43,7 @@ const TodoController = (function () {
 			title
 		})
 
-		return res.json(todo)
+		return res.status(201).json(todo)
 	}
 	async function update(req: Request, res: Response) {
 		const {
@@ -52,7 +53,7 @@ const TodoController = (function () {
 			description,
 			folder,
 			status
-		} = req.body as bodyParams
+		} = req.body as todoParams
 
 		const edited = new Date();
 
@@ -65,7 +66,11 @@ const TodoController = (function () {
 			status
 		})
 
-		return res.json(todo)
+		if (!todo) return res.status(404).json(NOT_FOUND)
+
+		const editedTodo = await Todo.findOne({ _id })
+
+		return res.json(editedTodo)
 	}
 	async function destroy(req: Request, res: Response) {
 		const { id: _id } = req.params
@@ -74,7 +79,7 @@ const TodoController = (function () {
 
 		if (!todo) return res.status(404).json(NOT_FOUND)
 
-		return res.json(todo)
+		return res.status(202).json(getJSONResponse('Tarefa Excluída!'))
 	}
 
 	return {
@@ -84,6 +89,6 @@ const TodoController = (function () {
 		show,
 		update
 	}
-})()
+})();
 
 export default TodoController

@@ -6,7 +6,7 @@ const TodoSchema = new mongoose.Schema({
 	description: String,
 	edited: Date,
 	endAt: Date,
-	folder: Number,
+	folder: String,
 	status: Boolean,
 	title: String,
 })
