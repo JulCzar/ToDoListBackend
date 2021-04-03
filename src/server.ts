@@ -1,6 +1,6 @@
-import express from 'express'
 import * as mongoose from 'mongoose'
-import cors from 'cors'
+const express = require('express')
+const cors = require('cors')
 
 import routes from './routes'
 import { mongoConfig, secrets } from './configs'
