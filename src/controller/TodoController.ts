@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { Todo } from '../models'
+import { Folder, Todo } from '../models'
 import { getJSONResponse } from '../utils';
 
 const NOT_FOUND = getJSONResponse('Tarefa não encontrada!')
@@ -30,6 +30,12 @@ const TodoController = (function () {
 	}
 	async function create(req: Request, res: Response) {
 		const { title, description, folder, endAt } = req.body as todoParams
+		
+		const folderExist = await Folder.findOne({ _id: folder })
+
+		console.log(folderExist)
+		
+		if (!folderExist) return res.status(404).json(getJSONResponse('A Pasta não existe'))
 
 		const created = new Date()
 

@@ -14,7 +14,11 @@ const FolderController = (function () {
 	async function index(req: Request, res: Response) {
 		const { user } = req.body as FolderParams
 
-		const folders = Folder.find({ user })
+		const userExist = await User.findOne({ _id: user })
+
+		if (!userExist) return res.status(404).json(getJSONResponse('Usuário não encontrado'))
+
+		const folders = await Folder.find({ user })
 
 		return res.json(folders)
 	}

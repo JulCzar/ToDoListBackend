@@ -20,7 +20,7 @@ routes.post('/folders', FolderController.create)
 routes.delete('/folders', FolderController.destroy)
 
 // Gerenciamento de Usuário
-routes.put('/user', UserController.update)
+routes.put('/users', UserController.update)
 routes.post('/login', UserController.login)
 routes.post('/users', UserController.create)
 routes.delete('/users/:id', UserController.destroy)
