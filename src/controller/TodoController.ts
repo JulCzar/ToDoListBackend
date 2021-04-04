@@ -32,8 +32,6 @@ const TodoController = (function () {
 		const { title, description, folder, endAt } = req.body as todoParams
 		
 		const folderExist = await Folder.findOne({ _id: folder })
-
-		console.log(folderExist)
 		
 		if (!folderExist) return res.status(404).json(getJSONResponse('A Pasta não existe'))
 
