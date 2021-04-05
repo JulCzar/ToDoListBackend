@@ -22,7 +22,7 @@ const UserController = (function () {
 		if (userExist)
 			return res.status(401).json(getJSONResponse('Email já cadastrado!'))
 
-		const user: UserParams = await User.create({
+		const user: any = await User.create({
 			name,
 			email,
 			lastName,
