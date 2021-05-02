@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { Folder, Todo, User } from '../models'
-import { getJSONResponse } from '../utils'
+import { Folder, Todo, User } from '~/models'
+import { getJSONResponse } from '~/utils'
 
 const NOT_FOUND = getJSONResponse('Pasta não encontrada')
 

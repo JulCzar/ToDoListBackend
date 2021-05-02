@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { Folder, Todo } from '../models'
-import { getJSONResponse } from '../utils';
+import { Folder, Todo } from '~/models'
+import { getJSONResponse } from '~/utils'
 
 const NOT_FOUND = getJSONResponse('Tarefa não encontrada!')
 
@@ -59,7 +59,7 @@ const TodoController = (function () {
 			status
 		} = req.body as todoParams
 
-		const edited = new Date();
+		const edited = new Date()
 
 		const todo = await Todo.findOneAndUpdate({ _id }, {
 			endAt,
@@ -93,6 +93,6 @@ const TodoController = (function () {
 		show,
 		update
 	}
-})();
+})()
 
 export default TodoController

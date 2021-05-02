@@ -7,15 +7,17 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "ts-node-dev index.ts",
-    "start": "npx ts-node index.ts",
-		"build": "tsc index.ts"
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./build/index.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register ./index.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.3"
+    "mongoose": "^5.12.3",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",

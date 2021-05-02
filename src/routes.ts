@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import { FolderController, TodoController, UserController } from './controller'
+import { FolderController, TodoController, UserController } from '~/controller'
 
 const routes = Router()
 
